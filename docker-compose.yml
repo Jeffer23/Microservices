@@ -1,0 +1,14 @@
+version: '3.3'
+services:
+    eurekaserver:
+        container_name: EurekaServer
+        image: jeffer23/eurekaserver:latest
+        ports: 
+            - 8762:8761
+    microsevice1:
+        container_name: ManageCurrencyConversionFactorMS
+        image: jeffer23/managecurrencyconversionfactor:latest
+        ports: 
+            - 8071:8070
+        depends_on:
+            - eurekaserver
